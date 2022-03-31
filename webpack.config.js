@@ -7,6 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), // __dirname: current dir, 'dist': name of the out folder
         filename: 'bundle.js', // name of the package that is created
     },
+    mode: 'development',
     resolve: {
         extensions: ['.js', '.jsx']
     },
