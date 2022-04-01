@@ -6,6 +6,8 @@ import '../styles/MyOrder.scss';
 
 const MyOrder = () => {
 	const { state: { cart } } = useContext(AppContext);
+	console.log(cart);
+	const total = cart.reduce((accumulator, currentItem,) => accumulator + currentItem.price, 0);
 
 	return (
 		<aside className="MyOrder">
@@ -14,12 +16,12 @@ const MyOrder = () => {
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">
-				{cart.map(({ id, ...item }) => <OrderItem key={id} product={item} />)}
+				{cart.map(item => <OrderItem key={`order-item-${item.id}`} product={item} />)}
 				<div className="order">
 					<p>
 						<span>Total</span>
 					</p>
-					<p>$560.00</p>
+					<p>${total}</p>
 				</div>
 				<button className="primary-button">
 					Checkout
