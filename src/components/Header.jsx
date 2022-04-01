@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Menu from '@components/Menu';
+import AppContext from '../context/AppContext';
 import menu from '@icons/icon_menu.svg';
 import logo from '@logos/logo_yard_sale.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
@@ -8,9 +9,9 @@ import '@styles/Header.scss';
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
+  const { state: { cart } } = useContext(AppContext);
 
   const handleToggle = () => {
-    console.log("Click");
     setToggle(!toggle);
   };
 
@@ -46,7 +47,7 @@ const Header = () => {
           <li className="navbar-email" onClick={handleToggle}>platzi@example.com</li>
           <li className="navbar-shopping-cart">
             <img src={shoppingCart} alt="shopping cart" />
-            <div>2</div>
+            <div>{cart.length}</div>
           </li>
         </ul>
       </div>
