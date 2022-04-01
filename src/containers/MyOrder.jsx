@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../context/AppContext';
 import OrderItem from '../components/OrderItem';
 import arrowIcon from '@icons/arrow.svg';
 import '../styles/MyOrder.scss';
 
 const MyOrder = () => {
+	const { state: { cart } } = useContext(AppContext);
+
 	return (
 		<aside className="MyOrder">
 			<div className="title-container">
@@ -11,7 +14,7 @@ const MyOrder = () => {
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">
-				<OrderItem />
+				{cart.map(({ id, ...item }) => <OrderItem key={id} product={item} />)}
 				<div className="order">
 					<p>
 						<span>Total</span>
@@ -24,6 +27,6 @@ const MyOrder = () => {
 			</div>
 		</aside>
 	);
-}
+};
 
 export default MyOrder;
