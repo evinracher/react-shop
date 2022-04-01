@@ -34,6 +34,13 @@ module.exports = {
                     'css-loader',
                     'sass-loader',
                 ]
+            },
+            {
+                test: /\.(png|jpg|svg|jpeg|webp)$/, // images extensions
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/pictures/[hash][ext]', // filename where the images are going to be save, hash for cache options and ext for extension
+                }
             }
         ]
     },
