@@ -7,6 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'), // __dirname: current dir, 'dist': name of the out folder
         filename: 'bundle.js', // name of the package that is created
+        publicPath: '/'
     },
     mode: 'development',
     resolve: {
@@ -58,6 +59,7 @@ module.exports = {
             directory: path.join(__dirname, 'public'),
         },
         compress: true,
-        port: 3000, // define the port to use
+        port: 3000, // define the port to use,
+        historyApiFallback: true
     }
 }
