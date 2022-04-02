@@ -19,7 +19,7 @@ const App = () => {
   const state = useAppState();
   return (
     <AppContext.Provider value={state}>
-      <BrowserRouter>
+      <BrowserRouter basename='/react-shop'>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
