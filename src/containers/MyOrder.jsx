@@ -6,7 +6,6 @@ import '../styles/MyOrder.scss';
 
 const MyOrder = () => {
 	const { state: { cart } } = useContext(AppContext);
-	console.log(cart);
 	const total = cart.reduce((accumulator, currentItem,) => accumulator + currentItem.price, 0);
 
 	return (
@@ -16,7 +15,7 @@ const MyOrder = () => {
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">
-				{cart.map(item => <OrderItem key={`order-item-${item.id}`} product={item} />)}
+				{cart.map((item, index) => <OrderItem index={index} key={index} product={item} />)}
 				<div className="order">
 					<p>
 						<span>Total</span>
