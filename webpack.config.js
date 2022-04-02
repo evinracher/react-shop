@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build'), // __dirname: current dir, 'build': name of the out folder
         filename: 'bundle.js', // name of the package that is created
-        publicPath: '/'
+        publicPath: '/react-shop/'
     },
     mode: 'development',
     resolve: {
